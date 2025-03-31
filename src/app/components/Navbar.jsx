@@ -19,7 +19,7 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 text-lg font-medium">
           <li><a href="/" className="hover:underline hover:text-white">Home</a></li>
-          <li><a href="/products" className="hover:underline hover:text-white">Products</a></li>
+          <li><a href="/Products" className="hover:underline hover:text-white">Products</a></li>
           <li><a href="/about" className="hover:underline hover:text-white">About</a></li>
           <li><a href="#contact" className="hover:underline hover:text-white">Contact</a></li>
         </ul>
@@ -29,7 +29,7 @@ export default function Navbar() {
       {isOpen && (
         <ul className="mt-2 flex flex-col gap-3 text-center text-lg font-medium md:hidden">
           <li><a href="/" className="hover:underline hover:text-white" onClick={() => setIsOpen(false)}>Home</a></li>
-          <li><a href="/products" className="hover:underline hover:text-white" onClick={() => setIsOpen(false)}>Products</a></li>
+          <li><a href="/Products" className="hover:underline hover:text-white" onClick={() => setIsOpen(false)}>Products</a></li>
           <li><a href="/about" className="hover:underline hover:text-white" onClick={() => setIsOpen(false)}>About</a></li>
           <li><a href="#contact" className="hover:underline hover:text-white" onClick={() => setIsOpen(false)}>Contact</a></li>
         </ul>
