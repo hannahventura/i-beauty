@@ -3,43 +3,12 @@
 import React, { useState } from "react";
 
 export default function Homepage() {
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
       {/* Navigation Bar */}
-      <nav className="bg-pink-300 p-4 shadow-md">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <img src="/images/ibeauty logo.png" alt="I-Beauty Logo" className="h-16 w-auto"/>
-
-          {/* Menu Button for Small Screens */}
-          <button className="md:hidden text-xl font-bold" onClick={() => setIsOpen(!isOpen)}>
-            ☰
-          </button>
-
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex gap-6 text-lg font-medium">
-          <li><a href="#" className="hover:underline hover:text-white">Home</a></li>
-          <li><a href="#" className="hover:underline hover:text-white">Products</a></li>
-          <li><a href="#" className="hover:underline hover:text-white">About</a></li>
-          <li><a href="#contact" className="hover:underline hover:text-white">Contact</a></li>
-
-          </ul>
-        </div>
-
-        {/* Mobile Menu */}
-        {isOpen && (
-          <ul className="mt-2 flex flex-col gap-3 text-center text-lg font-medium md:hidden">
-           <li><a href="#" className="hover:underline hover:text-white">Home</a></li>
-           <li><a href="#" className="hover:underline hover:text-white">Products</a></li>
-           <li><a href="#" className="hover:underline hover:text-white">About</a></li>
-           <li><a href="#contact" className="hover:underline hover:text-white">Contact</a></li>
-
-          </ul>
-        )}
-      </nav>
-
+      
       {/* I-Beauty Image */}
       <div className="w-full">
         <img src="/images/i-beauty pic 1.png" alt="I-Beauty Banner" className="w-full h-auto"/>
