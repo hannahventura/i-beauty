@@ -1,10 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [cart, setCart] = useState([]);
+  const router = useRouter();
+
+  const handleAddToCart = (product) => {
+    // Get existing cart from localStorage
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const updatedCart = [...existingCart, product];
+
+    // Save to localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    // Navigate to cart page
+    router.push("/Cart");
+  };
 
 
   const products = [
