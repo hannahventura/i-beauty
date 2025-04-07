@@ -2,7 +2,7 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col min-h-screen">
       {/* About Section */}
       <div className="flex flex-col md:flex-row bg-white py-8">
         {/* Rotated "History" Section */}
