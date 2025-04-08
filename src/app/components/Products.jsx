@@ -5,11 +5,20 @@ import { useRouter } from "next/navigation";
 
 export default function Products() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [quantities, setQuantities] = useState({});
   const router = useRouter();
 
+  const handleQuantityChange = (productId, value) => {
+    const qty = Math.max(1, parseInt(value) || 1); // ensure it's at least 1
+    setQuantities({ ...quantities, [productId]: qty });
+  };
+
   const handleAddToCart = (product) => {
+
     // Get existing cart from localStorage
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Add product with quantity
     const updatedCart = [...existingCart, product];
 
     // Save to localStorage
@@ -18,7 +27,6 @@ export default function Products() {
     // Navigate to cart page
     router.push("/Cart");
   };
-
 
   const products = [
     {
@@ -33,7 +41,7 @@ export default function Products() {
       name: "Clinience Cytokine",
       price: "₱11,499",
       image: "/images/clinience cytokine.png",
-      description: "The highest quality human umbilical cord-derived stem cell culture supernatant is liposome-encapsulated and made into a supplement. It has been processed using a special freeze-drying method that allows it to be stored at room temperature and taken orally."
+      description: "The highest quality human umbilical cord stem cell supernatant is liposome-encapsulated and freeze-dried for room temperature storage, making it easy to take as an oral supplement."
     },
     {
       id: 3,
@@ -54,35 +62,35 @@ export default function Products() {
       name: "Clinience Vitamin C",
       price: "₱3,499",
       image: "/images/clinience vitamin c.png",
-      description: "The vitamin C used at Clinience is Quali-C® manufactured by the British company DSM at a factory in Scotland. Quali-C® is vitamin C produced from non-genetically modified corn grown in Europe, and is recognized as a high-quality vitamin C by global standards."
+      description: "Clinience uses Quali-C® vitamin C, made by DSM in Scotland from non-GMO corn grown in Europe, recognized globally for its high quality."
     },
     {
       id: 6,
       name: "Dermashot Serum",
       price: "₱7,600",
       image: "/images/dermashot serum.png",
-      description: "Experience cutting-edge skincare with Dermashot Serum, featuring hollow microneedle technology for painless and effective beauty treatments. Infused with Cysay Factor, an advanced stem cell culture supernatant, it delivers deep hydration, anti-aging benefits, and enhanced skin regeneration. Achieve radiant, youthful skin with medical-grade innovation."
+      description: "Dermashot Serum uses hollow microneedle technology and Cysay Factor for painless, deep hydration, anti-aging, and skin regeneration."
     },
     {
       id: 7,
       name: "FOM Aqua Serum",
       price: "₱1,299",
       image: "/images/aqua serum.png",
-      description: "Introducing the world’s first and only cosmetic formulation infused with two rare and powerful ingredients—Moringa Oil and Fucoxanthin. Moringa Oil is celebrated for its exceptional antioxidant and moisturizing properties, helping to firm the skin while promoting a youthful, revitalized appearance. Fucoxanthin, often referred to as a gift from the sea, is a naturally occurring carotenoid with remarkable skin-nourishing benefits."
+      description: "Introducing the world’s first formula with Moringa Oil and Fucoxanthin. Moringa Oil firms and hydrates, while Fucoxanthin nourishes for glowing skin."
     },
     {
       id: 8,
       name: "FOM Botanical Lotion",
       price: "₱799",
       image: "/images/botanical lotion.png",
-      description: "Introducing the world’s first and only cosmetic formulation infused with two rare and powerful ingredients—Moringa Oil and Fucoxanthin. Moringa Oil is celebrated for its exceptional antioxidant and moisturizing properties, helping to firm the skin while promoting a youthful, revitalized appearance. Fucoxanthin, often referred to as a gift from the sea, is a naturally occurring carotenoid with remarkable skin-nourishing benefits."
+      description: "Introducing the world’s first formula with Moringa Oil and Fucoxanthin. Moringa Oil firms and hydrates, while Fucoxanthin nourishes for glowing skin."
     },
     {
       id: 9,
       name: "FOM Emulsion Cream",
       price: "₱1,699",
       image: "/images/emulsion cream.png",
-      description: "Introducing the world’s first and only cosmetic formulation infused with two rare and powerful ingredients—Moringa Oil and Fucoxanthin. Moringa Oil is celebrated for its exceptional antioxidant and moisturizing properties, helping to firm the skin while promoting a youthful, revitalized appearance. Fucoxanthin, often referred to as a gift from the sea, is a naturally occurring carotenoid with remarkable skin-nourishing benefits."
+      description: "Introducing the world’s first formula with Moringa Oil and Fucoxanthin. Moringa Oil firms and hydrates, while Fucoxanthin nourishes for glowing skin."
     },
     {
       id: 10,
@@ -117,7 +125,7 @@ export default function Products() {
       name: "Pure Exom",
       price: "₱7,125",
       image: "/images/pure exosome.png",
-      description: "Powered by exosome technology to repair and renew."
+      description: "A premium Japanese exosome powder from human stem cell supernatant. For use with a nebulizer to boost absorption and effectiveness."
     },
     {
       id: 15,
@@ -189,19 +197,21 @@ export default function Products() {
               />
               <h2 className="text-lg font-semibold text-pink-700 mb-1">{product.name}</h2>
               <p className="text-pink-400 font-bold">{product.price}</p>
-               {/* Hover effects: Add to Cart button and description */}
-               <div className="absolute inset-0 bg-white bg-opacity-90 text-pink-700 p-4 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-sm">{product.description}</p>
+
+              {/* Hover effects */}
+              <div className="absolute inset-0 bg-white bg-opacity-90 text-pink-700 p-4 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <p className="text-sm mb-3">{product.description}</p>
+
                 <button
                   onClick={() => handleAddToCart(product)}
-                  className="mt-3 bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+                  className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600 transition-opacity duration-300"
                 >
                   Add to Cart
                 </button>
               </div>
             </div>
-            ))}
-            </div>
+          ))}
+        </div>
       ) : (
         <p className="text-center text-pink-500 text-lg mt-10">No results found.</p>
       )}
