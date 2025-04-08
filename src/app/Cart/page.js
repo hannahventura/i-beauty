@@ -1,17 +1,25 @@
-"use client";  // Add this line at the top
+"use client";
 
 import { useEffect, useState } from "react";
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([]);
 
-  // Use useEffect to ensure localStorage is accessed only on the client side
+  // Load cart from localStorage
   useEffect(() => {
-    if (typeof window !== "undefined") { // Ensures this runs only on the client
+    if (typeof window !== "undefined") {
       const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
       setCartItems(storedCart);
     }
   }, []);
+  
+
+  // Remove item from cart
+  const handleRemove = (indexToRemove) => {
+    const updatedCart = cartItems.filter((_, index) => index !== indexToRemove);
+    setCartItems(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
 
   return (
     <div className="min-h-screen p-10 bg-white">
@@ -28,8 +36,22 @@ export default function Cart() {
                 alt={item.name}
                 className="w-40 h-40 object-contain mb-4"
               />
-              <h2 className="text-lg font-semibold text-pink-700 mb-2">{item.name}</h2>
-              <p className="text-pink-400 font-bold">{item.price}</p>
+              <h2 className="text-lg font-semibold text-pink-700 mb-1">
+                {item.name}
+              </h2>
+              <p className="text-pink-400 font-bold mb-1">{item.price}</p>
+              <p className="text-sm text-gray-600 mb-2">
+                Quantity:{" "}
+                <span className="font-medium text-pink-600">
+                  {item.quantity || 1}
+                </span>
+              </p>
+              <button
+                onClick={() => handleRemove(index)}
+                className="bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-800 transition"
+              >
+                Remove
+              </button>
             </div>
           ))}
         </div>
