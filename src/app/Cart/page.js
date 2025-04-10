@@ -70,10 +70,19 @@ export default function Cart() {
 
   const handleSubmit = () => {
     if (validateForm()) {
+      let totalCost = 0;
+  
       const cartDetails = cartItems
-        .map((item) => `${item.name} (Qty: ${item.quantity || 1})`)
+        .map((item) => {
+          const quantity = item.quantity || 1;
+          const price = parseFloat(item.price.replace(/[^\d.-]/g, "")); // remove currency symbol if needed
+          const subtotal = price * quantity;
+          totalCost += subtotal;
+  
+          return `${item.name} - Qty: ${quantity} - Price: ${item.price} - Subtotal: ₱${subtotal.toFixed(2)}`;
+        })
         .join("\n");
-
+  
       emailjs
         .send(
           process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -84,6 +93,7 @@ export default function Cart() {
             email: userInfo.email,
             phone: userInfo.phone,
             cart_details: cartDetails,
+            total_cost: `₱${totalCost.toFixed(2)}`,
           },
           process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
         )
