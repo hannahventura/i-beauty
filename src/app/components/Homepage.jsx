@@ -31,42 +31,43 @@ export default function Homepage() {
             {/* Card 1 */}
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <img src="/images/puccu.png" alt="Business Expansion" className="w-full h-48 object-contain rounded-md mx-auto"/>
-              <h3 className="text-xl text-pink-600 font-semibold mt-4">PUCCU</h3>
+              <h3 className="text-base sm:text-lg md:text-xl text-pink-600 font-semibold mt-4 whitespace-nowrap">PUCCU</h3>
               <p className="text-black mt-2">A true moisturizing lip serum that perfects your natural lips.</p>
             </div>
 
             {/* Card 2 */}
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <img src="/images/yby.png" alt="Business Expansion" className="w-full h-48 object-contain rounded-md mx-auto"/>
-              <h3 className="text-xl text-pink-600 font-semibold mt-4">YOU BE YOU</h3>
+              <h3 className="text-base sm:text-lg md:text-xl text-pink-600 font-semibold mt-4 whitespace-nowrap">YOU BE YOU</h3>
               <p className="text-black mt-2">You Be You contains natural ingredients that makes it excellent for daily use.</p>
             </div>
 
             {/* Card 3 */}
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <img src="/images/pureexom.png" alt="Business Expansion" className="w-full h-48 object-contain rounded-md mx-auto"/>
-              <h3 className="text-xl text-pink-600 font-semibold mt-4">PURE EXOM</h3>
+              <h3 className="text-base sm:text-lg md:text-xl text-pink-600 font-semibold mt-4 whitespace-nowrap">PURE EXOM</h3>
               <p className="text-black mt-2">A premium Japanese exosome powder derived from human stem cell supernatant, designed for use with a nebulizer to enhance absorption and maximize effectiveness.</p>
             </div>
 
             {/* Card 4 */}
             <div className="bg-white rounded-lg shadow-md p-6 text-center flex flex-col justify-between h-full">
               <img src="/images/Dermashot.png" alt="Business Expansion" className="w-full h-40 object-contain rounded-md mx-auto"/>
-              <h3 className="text-xl text-pink-600 font-semibold mt-4">DERMASHOT</h3>
+              <h3 className="text-base sm:text-lg md:text-xl text-pink-600 font-semibold mt-4 whitespace-nowrap">DERMASHOT</h3>
               <p className="text-black mt-2">Experience cutting-edge skincare with Dermashot Serum, <br></br> featuring hollow microneedle technology for painless and effective beauty treatments.</p>
             </div>
 
             {/* Card 5 */}
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <img src="/images/clinience.png" alt="Business Expansion" className="w-full h-48 object-contain rounded-md mx-auto"/>
-              <h3 className="text-xl text-pink-600 font-semibold mt-4">CLINIENCE</h3>
-              <p className="text-black mt-2">Clinience is a supplement brand that harnesses innovative liposome technology, crafted in collaboration with leading Japanese medical and research experts, to deliver unmatched precision and premiun quality.</p>
-            </div>
+              <h3 className="text-base sm:text-lg md:text-xl text-pink-600 font-semibold mt-4 whitespace-nowrap">CLINIENCE</h3>
+              <p className="text-black mt-2"> Experience cutting-edge skincare with Dermashot Serum, <br />
+                  featuring hollow microneedle technology for painless and effective beauty treatments.</p>
+              </div>
 
             {/* Card 6 */}
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <img src="/images/FOM.png" alt="Business Expansion" className="w-full h-48 object-contain rounded-md mx-auto"/>
-              <h3 className="text-xl text-pink-600 font-semibold mt-4">FOM</h3>
+              <h3 className="text-base sm:text-lg md:text-xl text-pink-600 font-semibold mt-4 whitespace-nowrap">FOM</h3>
               <p className="text-black mt-2">Unlock radiant, hydrated skin with the perfect blend of Emulsion Cream and Aqua Serum.</p>
             </div>
           </div>
