@@ -79,7 +79,7 @@ export default function Cart() {
           const subtotal = price * quantity;
           totalCost += subtotal;
   
-          return `${item.name} - Qty: ${quantity} - Price: ${item.price} - Subtotal: ₱${subtotal.toFixed(2)}`;
+          return `${item.name} - Qty: ${quantity} - Price: ${item.price} `;
         })
         .join("\n");
   
@@ -107,7 +107,7 @@ export default function Cart() {
         });
     }
   };
-
+  
   return (
     <div className="min-h-screen p-10 bg-white">
       <h1 className="text-3xl font-bold text-pink-600 mb-6">Your Cart</h1>
